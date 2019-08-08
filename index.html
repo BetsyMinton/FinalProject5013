@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractions</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="p5.js"></script>
+    <script src="p5.dom.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <h1>Adding Fractions</h1>
+    <p>Fractions are challenging for many.   The goal of this interactive experience is to help you understand how to add fractions, especially when they do not have a common denomintor.
+    <div id="firstFraction">
+        <p>To get started, pick a fraction and enter it below.  Enter a number between 1 and 6 in each box. </p>
+        <h3 id="numeratorEntry">Fraction 1:</h3>
+            <form name="fraction1">
+                <p>Numerator:
+                  <input type="number" name="numerator1" min="1" max="6"></p>
+                <p>Denominator: <input type="number" name="denominator1" min="1" max="6"><i>&nbsp;</i></p>
+            </form>
+            <button onClick="drawFractionOne()">Submit</button>
+    </div>
+    <div id="secondFraction">
+            <h3 id="numeratorEntry">Fraction 2:</h3>
+            <form name="fraction2">
+                <p>Numerator:
+                <input type="number" name="numerator2" min="1" max="6"></p>
+        <p>Denominator:
+                <input type="number" name="denominator2" min="1" max="6"></p>
+            </form>
+            <button onClick="drawFractionTwo()">Submit</button>
+    </div>
+    <div id=combineFractions>
+            <h3 id="combine">Now it's time to combine the fractions.</h3>
+            <button onClick="combineFractions()">Combine</button>
+    </div>
+    <div id="commonDenominator">
+    <h3>Change the numbers to see the fractions change.</h3>
+    </div>
+  </body>
+</html>
