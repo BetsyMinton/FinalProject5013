@@ -8,7 +8,7 @@
     <!--CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-			<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Indie+Flower&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Indie+Flower&display=swap" rel="stylesheet">
 
     <title>Fractions</title>
 
@@ -16,7 +16,7 @@
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
     <script src="p5.sound.js"></script>
-    <script src="fractionSketch.js"></script>
+    <script src="sketch.js"></script>
   </head>
   <body>
 		<nav class="navbar navbar-dark navbar-expand-sm bg-info">
@@ -31,7 +31,7 @@
 						</li>
 				<ul class="navbar-nav">
 		  		  <li class="nav-item">
-		    				<a class="nav-link" href="#">Learn</a>
+		    				<a class="nav-link" href="fractions.html">Learn</a>
 		    		</li>
 		        <li class="nav-item">
 		        		<a class="nav-link" href="createSnowflakes.html">Play</a>
@@ -46,47 +46,22 @@
 		  		<section class="col-sm-7" style="padding-top:15px;">
 						<div class="row justify-content-center">
 							<div class="p-2">
-								<h1 class="title">Adding Fractions</h1>
-				    		<p>Fractions are challenging for many.   The goal of this interactive experience is to help you understand how to add fractions, especially when they do not have a common denomintor.
-								<p>To get started, pick a fraction and enter it below.  Enter a number between 1 and 6 in each box. </p>
+								<h1 class="title">Creating Snowflakes</h1>
+				    		<p>Click the green flag to draw your snowflake.  	Press the spacebar to reset your drawing.</p>
 							</div>
 						</div>
 						<div class="row">
-							<section class="col-sm-6" id="firstFraction">
-						        <h3 id="numeratorEntry">Fraction 1:</h3>
-				            <form name="fraction1">
-				                <p>Numerator:
-				                  <input type="number" name="numerator1" min="1" max="6"></p>
-				                <p>Denominator: <input type="number" name="denominator1" min="1" max="6"><i>&nbsp;</i></p>
-				            </form>
-				            <button type="button" class="btn btn-info btn-md" onClick="drawFractionOne()">Submit</button>
-							</section>
-				    	<section class="col-sm-6 hiddenDivs" id="secondFraction">
-				            <h3 id="numeratorEntry">Fraction 2:</h3>
-				            <form name="fraction2">
-				                <p>Numerator:
-				                		<input type="number" name="numerator2" min="1" max="6">
-												</p>
-				        				<p>Denominator:
-				                		<input type="number" name="denominator2" min="1" max="6">
-												</p>
-				            </form>
-				            <button type="button" class="btn btn-info btn-md" onClick="drawFractionTwo()">Submit</button>
-							</section>
+							<iframe src="https://scratch.mit.edu/projects/323871763/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
 						</div>
 						<br>
 						<div class="row justify-content-center bg-light">
-				    		<div class="hiddenDivs" id=combineFractions>
-									<br>
-				          <button type="button" class="btn btn-primary btn-md" onClick="combineFractions()">Add the fractions together</button>
-								</div>
 								<div id="sketch-holder">
 									<!-- Sketch will go here! -->
 								</div>
 						</div>
 		  		</section>
 		  		<section class="col-sm-2" style="padding-top:15px;background-color:lightcyan;">
-						<div class="card h-100 card-block border-light justify-content-center" style="background-color:lightcyan">
+						<div class="card h-100 card-block border-light" style="background-color:lightcyan">
 							 <p id="helpText">Help Text</p>
 					 </div>
 					</section>

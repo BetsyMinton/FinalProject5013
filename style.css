@@ -1,19 +1,45 @@
+
+p {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: bold;
+}
+
+h3 {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: bold;
+}
+
 navbar {
-    padding: 10px;
+    padding: 15px;
 }
 
-h1 {
-    color: blue;
-}
 
-div {
+.hiddenDivs {
     display: none;
 }
 
-.localNav {
-    textAlign: center;
+.title {
+	font-size: 4em;
+	text-align: center;
+	color: blue;
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
 }
 
-#firstFraction {
-    display: block;
+input[type=number] {
+	padding: 5px  1px 5px 15px;
+	border-radius: 4px;
+}
+
+#sketch-holder {
+	margin: auto;
+}
+
+.container {
+  justify-items: center;
+}
+
+.centerBlock {
+  display: table;
+  margin: auto;
 }
