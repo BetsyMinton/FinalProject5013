@@ -1,9 +1,17 @@
+navbar {
+    padding: 10px;
+}
+
 h1 {
     color: blue;
 }
 
 div {
     display: none;
+}
+
+.localNav {
+    textAlign: center;
 }
 
 #firstFraction {
