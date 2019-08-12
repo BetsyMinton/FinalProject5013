@@ -24,8 +24,8 @@ var plus = 0;
 function setup() {
   var canvas  = createCanvas(400, 400);
   angleMode(DEGREES);
-  background(248, 249, 250);
-	var sketchHolder = document.getElementById("sketch-holder");
+  background(225,236,243);
+	var sketchHolder = document.getElementById("sketch-holder-fraction");
 	canvas.parent(sketchHolder);
 }
 
@@ -50,14 +50,77 @@ function drawFractionTwo() {
     document.getElementById("combineFractions").style.display = "block";
 }
 
+function drawOneCombined() {
+    angleOriginal = 360 / denominator;
+    angleNew = 0;
+    setDraw = 3;
+    xLocation = 100;
+}
+
+function drawTwoCombined() {
+    angleOriginal2 = 360 / denominator2;
+    angleNew2 = 0;
+    xLocation2 = 300;
+}
+
+
 function combineFractions() {
     xLocation = 200;
     xLocation2 = 200;
 		plus = 1;
+		document.getElementById("helpText").innerHTML = "Can you figure out the total?";
+		document.getElementById("needHintOne").style.display = "block";
 }
 
+function getHintOne() {
+		document.getElementById("needHintOne").style.display = "none";
+		document.getElementById("needHintTwo").style.display = "block";
+}
+
+function getHintTwo() {
+		document.getElementById("needHintTwo").style.display = "none";
+		document.getElementById("needHintThree").style.display = "block";
+}
+
+
+function lcm_two_numbers(x, y) {
+  lcmFraction = (Math.abs((x * y) / gcd_two_numbers(x, y)));
+  return setNumerators(lcmFraction);
+}
+
+function gcd_two_numbers(x, y) {
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
+function setNumerators(x) {
+  	var multiplier = x / denominator;
+		var multiplier2 = x / denominator2;
+		numerator = numerator * multiplier2;
+		numerator2 = numerator2 * multiplier;
+		denominator = lcmFraction;
+		denominator2 = lcmFraction;
+
+	}
+
+function getHintThree() {
+	xLocation = 100;
+	xLocation2 = 300;
+	drawOneCombined();
+	drawTwoCombined();
+	document.getElementById("needHintThree").style.display = "none";
+  return lcm_two_numbers(denominator, denominator2);
+	}
+
+
 function draw() {
-	background(248, 249, 250);
+	background(225,236,243);
   //1st fraction
   if (setDraw == 1) {
     noFill();
@@ -105,7 +168,6 @@ function draw() {
     fill(0);
     text(denominator, 100, 100);
   }
-
 
   //2nd fraction
   if (setDraw2 == 1) {
@@ -158,4 +220,35 @@ function draw() {
     line(190,70,210,70);
     line(200,60,200,80);
   }
+
+	// showme Fractions
+	if (setDraw == 3) {
+		background(225,236,243);
+    //write 1st fraction
+    textSize(24);
+    fill(255,0,0);
+    text(numerator, 100, 60);
+    fill(0);
+    strokeWeight(2);
+    line(90,70,120,70);
+    fill(0);
+    text(denominator, 100, 100);
+    //write 2nd fraction
+    textSize(24);
+    fill(0,0,255);
+    text(numerator2, 300, 60);
+    fill(0);
+    strokeWeight(2);
+    line(290,70,320,70);
+    fill(0);
+    text(denominator2, 300, 100);
+		//plus
+    line(190,70,210,70);
+    line(200,60,200,80);
+		// directions
+		textSize(12);
+		text("Change the numbers in the text boxes above", 50, 200);
+		text("to match these fractions", 50, 215);
+		text("Hit submit for each one, then add", 50, 230);
+	 }
 }

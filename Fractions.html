@@ -75,12 +75,12 @@
 							</section>
 						</div>
 						<br>
-						<div class="row justify-content-center bg-light">
-				    		<div class="hiddenDivs" id=combineFractions>
+						<div class="row justify-content-center" style="background-color:rgb(225,236,243)">
+				    		<div class="hiddenDivs" id="combineFractions">
 									<br>
 				          <button type="button" class="btn btn-primary btn-md" onClick="combineFractions()">Add the fractions together</button>
 								</div>
-								<div id="sketch-holder">
+								<div id="sketch-holder-fraction">
 									<!-- Sketch will go here! -->
 								</div>
 						</div>
@@ -88,6 +88,21 @@
 		  		<section class="col-sm-2" style="padding-top:15px;background-color:lightcyan;">
 						<div class="card h-100 card-block border-light justify-content-center" style="background-color:lightcyan">
 							 <p id="helpText">Help Text</p>
+							 <div class="hiddenDivs" id="needHintOne">
+						 		<br>
+						 		<button type="button" class="btn btn-info btn-sm" onClick="getHintOne()">I need more help.</button>
+						 	</div>
+							<div class="hiddenDivs" id="needHintTwo">
+							 <p><span style="font-style: strong">Are the black numbers the same? </span> It very hard to figure out the total if they are not.  Although, if the dividing lines align, you might be able to figure it out.</p><p> Trying converting the fractions so that they have a common denominator.</p><p>Convert the fractions then hit submit again.</p>
+							 <br>
+							 <button type="button" class="btn btn-info btn-sm" onClick="getHintTwo()">How?</button>
+						 </div>
+						 <div class="hiddenDivs" id="needHintThree">
+							<p id="helpTextThree"><a href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-common-denominators/v/finding-common-denominators" target="_blank">How to find common demonimators</a></p>
+							<p>Now try converting the fractions.	Remember whatever number you mutliply by the denominator (bottom number), you must also multiple by the numerator (the top number).</p>
+							<br>
+							<button type="button" class="btn btn-info btn-sm" onClick="getHintThree()">Show me!</button>
+						</div>
 					 </div>
 					</section>
 					</span>
