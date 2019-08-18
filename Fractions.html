@@ -8,11 +8,11 @@
     <!--CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-			<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Indie+Flower&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Indie+Flower&display=swap" rel="stylesheet">
 
     <title>Fractions</title>
 
-		<!--p5 stuff-->
+	<!--p5 stuff-->
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
     <script src="p5.sound.js"></script>
@@ -22,7 +22,7 @@
 		<nav class="navbar navbar-dark navbar-expand-sm bg-info">
 		    <a class="navbar-brand" href="#">Manipulate Math</a>
 		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-		    		<span class="navbar-toggler-icon"></span>
+		    	<span class="navbar-toggler-icon"></span>
 		  	</button>
 			<div class="collapse navbar-collapse" id="navbarToggler">
 				<ul class="navbar-nav">
@@ -30,59 +30,53 @@
 								<a class="nav-link" href="index.html">Welcome</a>
 						</li>
 				<ul class="navbar-nav">
-		  		  <li class="nav-item">
-		    				<a class="nav-link" href="#">Learn</a>
-		    		</li>
-		        <li class="nav-item">
-		        		<a class="nav-link" href="createSnowflakes.html">Play</a>
-		    		</li>
+		  		  		<li class="nav-item">
+		    					<a class="nav-link" href="#">Learn</a>
+		    			</li>
+		        		<li class="nav-item">
+		        				<a class="nav-link" href="createSnowflakes.html">Play</a>
+		    			</li>
 				</ul>
 			</div>
 		</nav>
 		<div class="container-fluid vh-100">
 				<div class="row">
-		  		<section class="col-sm-3" style="padding-top:15px;background-color:lightcyan;">Local Navigation
-					</section>
+		  		<section class="col-sm-3" style="padding-top:15px;background-color:lightcyan;">Local Navigation</section>
 		  		<section class="col-sm-7" style="padding-top:15px;">
 						<div class="row justify-content-center">
 							<div class="p-2">
 								<h1 class="title">Adding Fractions</h1>
-				    		<p>Fractions are challenging for many.   The goal of this interactive experience is to help you understand how to add fractions, especially when they do not have a common denomintor.
+				    			<p>Fractions are challenging for many.   The goal of this interactive experience is to help you understand how to add fractions, especially when they do not have a common denomintor.
 								<p>To get started, pick a fraction and enter it below.  Enter a number between 1 and 6 in each box. </p>
 							</div>
 						</div>
 						<div class="row">
 							<section class="col-sm-6" id="firstFraction">
 						        <h3 id="numeratorEntry">Fraction 1:</h3>
-				            <form name="fraction1">
-				                <p>Numerator:
-				                  <input type="number" name="numerator1" min="1" max="12"></p>
-				                <p>Denominator: <input type="number" name="denominator1" min="1" max="12"><i>&nbsp;</i></p>
-				            </form>
-				            <button type="button" class="btn btn-info btn-md" onClick="drawFractionOne()">Submit</button>
+				            	<form name="fraction1">
+				                	<p>Numerator:  <input type="number" name="numerator1" min="1" max="12"></p>
+				                	<p>Denominator: <input type="number" name="denominator1" min="1" max="12"><i>&nbsp;</i></p>
+				            	</form>
+				            	<button type="button" class="btn btn-info btn-md" onClick="drawFractionOne()">Submit</button>
 							</section>
-				    	<section class="col-sm-6 hiddenDivs" id="secondFraction">
-				            <h3 id="numeratorEntry">Fraction 2:</h3>
-				            <form name="fraction2">
-				                <p>Numerator:
-				                		<input type="number" name="numerator2" min="1" max="12">
-												</p>
-				        				<p>Denominator:
-				                		<input type="number" name="denominator2" min="1" max="12">
-												</p>
-				            </form>
-				            <button type="button" class="btn btn-info btn-md" onClick="drawFractionTwo()">Submit</button>
+				    		<section class="col-sm-6 hiddenDivs" id="secondFraction">
+				           	 	<h3 id="numeratorEntry">Fraction 2:</h3>
+				            	<form name="fraction2">
+									<p>Numerator: <input type="number" name="numerator2" min="1" max="12"></p>
+				        			<p>Denominator: <input type="number" name="denominator2" min="1" max="12"></p>
+				            	</form>
+				            	<button type="button" class="btn btn-info btn-md" onClick="drawFractionTwo()">Submit</button>
 							</section>
 						</div>
 						<br>
 						<div class="row justify-content-center" style="background-color:rgb(225,236,243)">
 				    		<div class="hiddenDivs" id="combineFractions">
-									<br>
-				          <button type="button" class="btn btn-primary btn-md" onClick="combineFractions()">Add the fractions together</button>
-								</div>
-								<div id="sketch-holder-fraction">
-									<!-- Sketch will go here! -->
-								</div>
+								<br>
+				          		<button type="button" class="btn btn-primary btn-md" onClick="combineFractions()">Add the fractions together</button>
+							</div>
+							<div id="sketch-holder-fraction">
+								<!-- Sketch will go here! -->
+							</div>
 						</div>
 		  		</section>
 		  		<section class="col-sm-2" style="padding-top:15px;background-color:lightcyan;">
@@ -93,20 +87,19 @@
 						 		<button type="button" class="btn btn-info btn-sm" onClick="getHintOne()">I need more help.</button>
 						 	</div>
 							<div class="hiddenDivs" id="needHintTwo">
-							 <p><span style="font-style: strong">Are the black numbers the same? </span> It very hard to figure out the total if they are not.  Although, if the dividing lines align, you might be able to figure it out.</p><p> Trying converting the fractions so that they have a common denominator.</p><p>Convert the fractions then hit submit again.</p>
-							 <br>
-							 <button type="button" class="btn btn-info btn-sm" onClick="getHintTwo()">How?</button>
-						 </div>
-						 <div class="hiddenDivs" id="needHintThree">
-							<p id="helpTextThree"><a href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-common-denominators/v/finding-common-denominators" target="_blank">How to find common demonimators</a></p>
-							<p>Now try converting the fractions.	Remember whatever number you mutliply by the denominator (bottom number), you must also multiple by the numerator (the top number).</p>
-							<br>
-							<button type="button" class="btn btn-info btn-sm" onClick="getHintThree()">Show me!</button>
-						</div>
-					 </div>
-					</section>
-					</span>
-				</div> <!--outside row-->
+							 	<p><span style="font-style: strong">Are the black numbers the same? </span> It very hard to figure out the total if they are not.  Although, if the dividing lines align, you might be able to figure it out.</p><p> Trying converting the fractions so that they have a common denominator.</p><p>Convert the fractions then hit submit again.</p>
+							 	<br>
+							 	<button type="button" class="btn btn-info btn-sm" onClick="getHintTwo()">How?</button>
+						 	</div>
+						 	<div class="hiddenDivs" id="needHintThree">
+								<p id="helpTextThree"><a href="https://www.khanacademy.org/math/arithmetic/fraction-arithmetic/arith-review-common-denominators/v/finding-common-denominators" target="_blank">How to find common demonimators</a></p>
+								<p>Now try converting the fractions.	Remember whatever number you mutliply by the denominator (bottom number), you must also multiple by the numerator (the top number).</p>
+								<br>
+								<button type="button" class="btn btn-info btn-sm" onClick="getHintThree()">Show me!</button>
+							</div>
+					 	</div>
+				</section>
+			</div> <!--outside row-->
 		</div> <!--container-->
 		<footer class="footer">
 			<div class="container">
