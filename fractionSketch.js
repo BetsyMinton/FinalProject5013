@@ -20,6 +20,9 @@ var blueDoneAngle;
 var setDraw = 0;
 var setDraw2 = 0;
 var plus = 0;
+var printErrorGo = 0;
+var xloc;
+
 
 function setup() {
   var canvas  = createCanvas(400, 400);
@@ -30,24 +33,40 @@ function setup() {
 }
 
 function drawFractionOne() {
-    numerator = document.fraction1.numerator1.value;
-    denominator = document.fraction1.denominator1.value;
-    angleOriginal = 360 / denominator;
-    angleNew = 0;
-    setDraw = 1;
-    xLocation = 100;
-		plus = 0;
-    document.getElementById("secondFraction").style.display = "block";
+	numerator = document.fraction1.numerator1.value;
+	denominator = document.fraction1.denominator1.value;
+		if (360 % denominator == 0) {
+  		angleOriginal = 360 / denominator;
+    	angleNew = 0;
+    	setDraw = 1;
+    	xLocation = 100;
+			plus = 0;
+			printErrorGo = 0;
+    	document.getElementById("secondFraction").style.display = "block";
+		} else {
+			setDraw = 0;
+			printErrorGo = 1;
+			xloc = 50;
+			document.getElementById("secondFraction").style.display = "none";
+		}
 }
 
 function drawFractionTwo() {
-    numerator2 = document.fraction2.numerator2.value;
-    denominator2 = document.fraction2.denominator2.value;
+	numerator2 = document.fraction2.numerator2.value;
+	denominator2 = document.fraction2.denominator2.value;
+		if (360 % denominator2 == 0) {
     angleOriginal2 = 360 / denominator2;
     angleNew2 = 0;
     setDraw2 = 1;
     xLocation2 = 300;
+		plus = 0;
+		printErrorGo = 0;
     document.getElementById("combineFractions").style.display = "block";
+	} else {
+		setDraw2 = 0;
+		printErrorGo = 1;
+		xloc = 200;
+	}
 }
 
 function drawOneCombined() {
@@ -68,7 +87,7 @@ function combineFractions() {
     xLocation = 200;
     xLocation2 = 200;
 		plus = 1;
-		document.getElementById("helpText").innerHTML = "Can you figure out the total?";
+		document.getElementById("helpText").innerHTML = "Can you figure out the total?  If not, why not?";
 		document.getElementById("needHintOne").style.display = "block";
 }
 
@@ -121,6 +140,13 @@ function getHintThree() {
 
 function draw() {
 	background(225,236,243);
+	if (printErrorGo == 1) {
+		  push();
+			textSize(14);
+			var errorText = "Please, use one of the following numbers in the denominator: 1, 2, 3, 4, 5, 6, 8, 9, 10, or 12.";
+			text(errorText,xloc,100,200,200);
+			pop();
+		}
   //1st fraction
   if (setDraw == 1) {
     noFill();
@@ -140,11 +166,11 @@ function draw() {
       }
       redDoneAngle = angleLine;
       //draw empty sections
-      for (diff = 0; diff < (denominator - numerator); diff++) {
+			for (diff = 0; diff < (denominator - numerator); diff++) {
         //draw 1 set of empty lines
         for (e = 0; e < angleOriginal; e++) {
           noStroke();
-          line(0, 0, ((radius*(cos(angleLine)))), ((radius*(sin(angleLine)))));
+          line(0, 0, ((radius*(cos(angleLine)))),((radius*(sin(angleLine)))));
           angleLine += 1;
           }
         }
@@ -159,15 +185,8 @@ function draw() {
     circle(0, 0, 2 * radius);
     pop();
     //write fraction
-    textSize(24);
-    fill(255,0,0);
-    text(numerator, 100, 60);
-    fill(0);
-    strokeWeight(2);
-    line(90,70,120,70);
-    fill(0);
-    text(denominator, 100, 100);
-  }
+		writeFraction(100, 100, numerator, denominator, 'red');
+}
 
   //2nd fraction
   if (setDraw2 == 1) {
@@ -207,14 +226,7 @@ function draw() {
     //draw outside red circle
     circle(0, 0, 2 * radius);
     pop();
-    textSize(24);
-    fill(0,0,255);
-    text(numerator2, 300, 60);
-    fill(0);
-    strokeWeight(2);
-    line(290,70,320,70);
-    fill(0);
-    text(denominator2, 300, 100);
+		writeFraction(300, 300, numerator2, denominator2, 'blue');
   }
   if (plus == 1) {
     line(190,70,210,70);
@@ -225,23 +237,9 @@ function draw() {
 	if (setDraw == 3) {
 		background(225,236,243);
     //write 1st fraction
-    textSize(24);
-    fill(255,0,0);
-    text(numerator, 100, 60);
-    fill(0);
-    strokeWeight(2);
-    line(90,70,120,70);
-    fill(0);
-    text(denominator, 100, 100);
+  	writeFraction(100, 97, numerator, denominator, 'red');
     //write 2nd fraction
-    textSize(24);
-    fill(0,0,255);
-    text(numerator2, 300, 60);
-    fill(0);
-    strokeWeight(2);
-    line(290,70,320,70);
-    fill(0);
-    text(denominator2, 300, 100);
+  	writeFraction(300, 298, numerator2, denominator2, 'blue');
 		//plus
     line(190,70,210,70);
     line(200,60,200,80);
@@ -251,4 +249,15 @@ function draw() {
 		text("to match these fractions", 50, 215);
 		text("Hit submit for each one, then add", 50, 230);
 	 }
+}
+
+function writeFraction(xloc1, xloc2, num, den, color) {
+	textSize(24);
+	fill(color);
+	text(num, xloc1, 60);
+	fill(0);
+	strokeWeight(2);
+	line(xloc1-10, 70, xloc1+20, 70);
+	fill(0);
+	text(den, xloc2, 100);
 }
